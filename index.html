@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nabla Wallpaper</title>
+<meta name="description" content="Project Nabla 메인샷 월페이퍼 다운로드와 방명록 · 홍익대학교 산업디자인전공 2026 졸업전시">
+<meta property="og:title" content="Nabla Wallpaper">
+<meta property="og:description" content="Fine-tuning System for Customized Physical AI — 월페이퍼 받고 방명록 남기기">
+<meta property="og:image" content="wallpaper/Nabla_Wallpaper_1440x2880.jpg">
+<meta name="theme-color" content="#eceef6">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 레이아웃: 모바일 한 열. 메인샷이 첫 화면을 채우고 그 아래 다운로드 → 방명록 순 */
+:root{
+  --ground:#eceef6;      /* 월페이퍼 배경의 라벤더 화이트 */
+  --surface:#f7f8fc;
+  --ink:#1c1e2b;
+  --ink-soft:#5d6178;
+  --line:#d6d9e8;
+  --chrome:#7b80c9;      /* 로봇 크롬에 비친 보랏빛 */
+  --chrome-deep:#4f54a3;
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--ground);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%;display:block}
+.wrap{max-width:480px;margin:0 auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* 히어로 */
+.hero{padding-block:16px 4px;display:grid;gap:14px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px}
+.shot{position:relative;border-radius:20px;overflow:hidden;background:var(--surface);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 24px 48px -28px rgba(79,84,163,.45);
+  aspect-ratio:1/2;max-height:58vh;margin-inline:auto;width:100%;max-width:calc(58vh / 2)}
+.shot img{width:100%;height:100%;object-fit:cover;-webkit-touch-callout:default}
+h1{margin:4px 0 0;font-size:40px;line-height:1.05;font-weight:800;letter-spacing:-.03em;text-wrap:balance}
+h1 .pron{font-weight:400;font-size:15px;letter-spacing:0;color:var(--ink-soft);margin-left:8px;font-family:var(--mono)}
+.sub{margin:0;color:var(--ink-soft);font-size:15px;max-width:34em}
+
+/* 다운로드 */
+.dl{padding-block:16px 36px;display:grid;gap:10px}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:56px;padding:0 20px;border-radius:14px;font-weight:650;font-size:16px;transition:transform .12s ease,background-color .12s ease}
+.btn:active{transform:scale(.985)}
+.btn-primary{background:var(--ink);color:var(--surface)}
+.btn-primary:hover{background:#2c2f45}
+.btn-quiet{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.btn .meta{font-weight:450;font-size:13px;opacity:.72;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.hint{margin:4px 2px 0;font-size:13px;color:var(--ink-soft)}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--chrome);outline-offset:2px}
+
+/* 방명록 */
+.gb{border-top:1px solid var(--line);padding-block:32px 48px;display:grid;gap:20px}
+.gb h2{margin:0;font-size:22px;font-weight:750;letter-spacing:-.02em}
+.gb .lead{margin:-12px 0 0;color:var(--ink-soft);font-size:14px}
+form{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.field{display:grid;gap:6px}
+label{font-size:13px;font-weight:650;color:var(--ink)}
+input,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+textarea{min-height:120px;resize:vertical;line-height:1.55}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px;color:var(--ink-soft)}
+.count{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.count.over{color:#b4233c}
+.btn-send{background:var(--chrome-deep);color:#fff;justify-content:center;min-height:50px}
+.btn-send:hover{background:#43478f}
+.btn-send[disabled]{opacity:.55;cursor:default}
+.status{font-size:13px;margin:0;min-height:1.2em}
+.status.err{color:#b4233c}
+.status.ok{color:var(--chrome-deep)}
+fieldset.vis{border:0;margin:0;padding:0;display:grid;gap:6px;min-width:0}
+fieldset.vis legend{font-size:13px;font-weight:650;padding:0;margin-bottom:6px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label{display:grid;gap:2px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;font-size:15px;font-weight:650}
+.seg label small{font-size:12px;font-weight:450;color:var(--ink-soft)}
+.seg input:checked + label{border-color:var(--chrome-deep);box-shadow:0 0 0 1px var(--chrome-deep) inset;background:#f1f2fb}
+.seg input:focus-visible + label{outline:3px solid var(--chrome);outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.entries{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.entry{padding-block:16px;border-bottom:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.entry header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.entry .who{font-weight:700;font-size:15px;overflow-wrap:anywhere}
+.entry time{font-family:var(--mono);font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+.entry p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px}
+.empty{color:var(--ink-soft);font-size:14px;padding:16px 0;margin:0}
+.more{justify-self:center;background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:8px 18px;font:inherit;font-size:14px;cursor:pointer}
+
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:12px;color:var(--ink-soft);display:grid;gap:4px}
+footer a{color:inherit}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:active{transform:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow"><span>Hongik ID · Degree Show 2026</span><span>∇</span></div>
+    <div class="shot">
+      <img src="wallpaper/Nabla_Wallpaper_1440x2880.jpg" width="1440" height="2880"
+           alt="Project Nabla 메인샷. 흰 펜싱복을 입은 사람과 은빛 사족보행 로봇이 나란히 서 있다.">
+    </div>
+    <div>
+      <h1>Nabla<span class="pron">/ˈnæblə/</span></h1>
+      <p class="sub">Fine-tuning System for Customized Physical AI. 나만의 행동 데이터로 로봇을 길들이는 2030년의 파인튜닝 시스템.</p>
+    </div>
+  </section>
+
+  <section class="dl" aria-label="월페이퍼 다운로드">
+    <a class="btn btn-primary" id="dl-hi" href="wallpaper/Nabla_Wallpaper_2880x5760.jpg" download="Nabla_Wallpaper_2880x5760.jpg">
+      <span>월페이퍼 저장</span><span class="meta">2880×5760 · 1.0MB</span>
+    </a>
+    <a class="btn btn-quiet" id="dl-lo" href="wallpaper/Nabla_Wallpaper_1440x2880.jpg" download="Nabla_Wallpaper_1440x2880.jpg">
+      <span>가벼운 버전</span><span class="meta">1440×2880 · 0.3MB</span>
+    </a>
+    <p class="hint" id="ios-hint">아이폰에서는 위 이미지를 길게 눌러 ‘사진 앱에 저장’을 고르면 바로 배경화면으로 쓸 수 있어요.</p>
+  </section>
+
+  <section class="gb" aria-labelledby="gb-title">
+    <h2 id="gb-title">방명록</h2>
+    <p class="lead">전시를 보고 든 생각을 남겨 주세요. 공개 글은 이 페이지에 보이고, 비공개 글은 작가만 읽어요.</p>
+
+    <form id="gb-form" novalidate>
+      <div class="field">
+        <label for="gb-name">이름</label>
+        <input id="gb-name" name="name" maxlength="30" autocomplete="nickname" required>
+      </div>
+      <div class="field">
+        <label for="gb-msg">내용</label>
+        <textarea id="gb-msg" name="message" maxlength="1000" required></textarea>
+        <div class="row"><span>작성 일시는 자동으로 기록돼요</span><span class="count" id="gb-count">0 / 1000</span></div>
+      </div>
+      <fieldset class="vis">
+        <legend>공개 여부</legend>
+        <div class="seg">
+          <input type="radio" id="gb-vis-public" name="visibility" value="public" checked>
+          <label for="gb-vis-public">공개<small>모두에게 보여요</small></label>
+          <input type="radio" id="gb-vis-private" name="visibility" value="private">
+          <label for="gb-vis-private">비공개<small>작가만 읽어요</small></label>
+        </div>
+      </fieldset>
+      <div class="hp" aria-hidden="true"><label for="gb-site">웹사이트</label><input id="gb-site" name="site" tabindex="-1" autocomplete="off"></div>
+      <button class="btn btn-send" id="gb-send" type="submit">남기기</button>
+      <p class="status" id="gb-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <ol class="entries" id="gb-list" aria-label="방명록 목록"></ol>
+    <p class="empty" id="gb-empty">아직 남겨진 글이 없어요. 첫 글을 남겨 주세요.</p>
+    <button class="more" id="gb-more" type="button" hidden>이전 글 더 보기</button>
+  </section>
+
+  <footer>
+    <span>Project Nabla · 이종현 · 홍익대학교 산업디자인전공 2026 졸업전시</span>
+    <span>Designed by @typing_identificati0n</span>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script>
+(function(){
+  "use strict";
+  var PAGE = 30;
+  var $ = function(id){ return document.getElementById(id); };
+  var form=$("gb-form"), nameEl=$("gb-name"), msgEl=$("gb-msg"), countEl=$("gb-count"),
+      sendEl=$("gb-send"), statusEl=$("gb-status"), listEl=$("gb-list"), emptyEl=$("gb-empty"), moreEl=$("gb-more");
+
+  // iOS가 아니면 길게 누르기 안내 숨김
+  var isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+  if(!isIOS) $("ios-hint").hidden = true;
+
+  // 작성 일시: 서버(created_at) 값을 한국 시간으로 표시
+  var fmt = new Intl.DateTimeFormat("ko-KR",{timeZone:"Asia/Seoul",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
+
+  function setStatus(text, kind){ statusEl.textContent=text; statusEl.className="status"+(kind?" "+kind:""); }
+
+  function updateCount(){
+    var n = msgEl.value.length;
+    countEl.textContent = n+" / 1000";
+    countEl.classList.toggle("over", n>1000);
+  }
+  msgEl.addEventListener("input", function(){ updateCount(); setStatus(""); });
+  nameEl.addEventListener("input", function(){ setStatus(""); });
+
+  var cfg = window.NABLA_CONFIG || {};
+  var ready = cfg.supabaseUrl && cfg.supabaseKey && cfg.supabaseUrl.indexOf("YOUR-")<0 && window.supabase;
+  if(!ready){
+    sendEl.disabled = true;
+    setStatus("방명록 연결 준비 중이에요. 잠시 후 다시 들러 주세요.", "err");
+    emptyEl.hidden = true;
+    return;
+  }
+  var sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey, {auth:{persistSession:false}});
+  var oldest = null;
+
+  function render(rows, append){
+    if(!append) listEl.textContent = "";
+    rows.forEach(function(r){
+      var li=document.createElement("li"); li.className="entry";
+      var h=document.createElement("header");
+      var who=document.createElement("span"); who.className="who"; who.textContent=r.name;
+      var t=document.createElement("time"); t.dateTime=r.created_at; t.textContent=fmt.format(new Date(r.created_at));
+      var p=document.createElement("p"); p.textContent=r.message;
+      h.appendChild(who); h.appendChild(t); li.appendChild(h); li.appendChild(p);
+      listEl.appendChild(li);
+    });
+    emptyEl.hidden = listEl.children.length>0;
+  }
+
+  function load(append){
+    var q = sb.from("guestbook").select("name,created_at,message").order("created_at",{ascending:false}).limit(PAGE);
+    if(append && oldest) q = q.lt("created_at", oldest);
+    return q.then(function(res){
+      if(res.error){ emptyEl.hidden=false; emptyEl.textContent="방명록을 불러오지 못했어요. 새로고침해 주세요."; return; }
+      var rows=res.data||[];
+      if(rows.length) oldest = rows[rows.length-1].created_at;
+      render(rows, append);
+      moreEl.hidden = rows.length<PAGE;
+    });
+  }
+  moreEl.addEventListener("click", function(){ load(true); });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name=nameEl.value.trim(), message=msgEl.value.trim(), isPublic=$("gb-vis-public").checked;
+    if($("gb-site").value) return; // 봇 차단용 숨은 필드
+    if(!name){ setStatus("이름을 입력해 주세요.","err"); nameEl.focus(); return; }
+    if(!message){ setStatus("내용을 입력해 주세요.","err"); msgEl.focus(); return; }
+    if(message.length>1000){ setStatus("내용은 1000자까지 쓸 수 있어요. 지금 "+message.length+"자예요.","err"); msgEl.focus(); return; }
+    sendEl.disabled=true; sendEl.textContent="남기는 중…";
+    sb.from("guestbook").insert({name:name, message:message, is_public:isPublic}).then(function(res){
+      sendEl.disabled=false; sendEl.textContent="남기기";
+      if(res.error){ setStatus("저장하지 못했어요. 연결을 확인하고 다시 눌러 주세요.","err"); return; }
+      msgEl.value=""; updateCount();
+      if(isPublic){ setStatus("남겼어요. 고맙습니다.","ok"); oldest=null; load(false); }
+      else { setStatus("비공개로 남겼어요. 작가에게만 전해져요.","ok"); }
+    });
+  });
+
+  load(false);
+})();
+</script>
+</body>
+</html>
